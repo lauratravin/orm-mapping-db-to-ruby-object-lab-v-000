@@ -71,13 +71,10 @@ class Student
 
 
   def self.all_students_in_grade_9
-    # find the student in the database given a name
-    # return a new instance of the Student class
     sql = <<-SQL
       SELECT *
       FROM students
       WHERE grade = ?
-      LIMIT 1
     SQL
 
     DB[:conn].execute(sql,9).map do |row|
